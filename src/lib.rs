@@ -29,23 +29,23 @@ mod drains;
 use drains::{SliceDrain, StrDrain};
 
 pub trait Drain<'a, T> {
-    type Target: DoubleEndedIterator<Item = T> + 'a;
-    fn drain(&'a mut self) -> Self::Target;
+	type Target: DoubleEndedIterator<Item = T> + 'a;
+	fn drain(&'a mut self) -> Self::Target;
 }
 
 pub trait Pop<T> {
-    fn pop(&mut self) -> Option<T>;
+	fn pop(&mut self) -> Option<T>;
 }
 
 pub trait Unshift<T> {
-    fn unshift(&mut self) -> Option<T>;
+	fn unshift(&mut self) -> Option<T>;
 }
 
 impl<'a, T: 'a> Drain<'a, &'a T> for &'a [T] {
-    type Target = SliceDrain<'a, T>;
-    fn drain(&'a mut self) -> Self::Target {
-        SliceDrain(self)
-    }
+	type Target = SliceDrain<'a, T>;
+	fn drain(&'a mut self) -> Self::Target {
+		SliceDrain(self)
+	}
 }
 
 // TODO
@@ -57,10 +57,10 @@ impl<'a, T: 'a> Drain<'a, &'a T> for &'a [T] {
 // }
 
 impl<'a> Drain<'a, char> for &'a str {
-    type Target = StrDrain<'a>;
-    fn drain(&'a mut self) -> Self::Target {
-        StrDrain(self)
-    }
+	type Target = StrDrain<'a>;
+	fn drain(&'a mut self) -> Self::Target {
+		StrDrain(self)
+	}
 }
 
 // TODO
@@ -74,22 +74,22 @@ impl<'a> Drain<'a, char> for &'a str {
 // }
 
 impl<'a, T> Pop<&'a T> for &'a [T] {
-    fn pop(&mut self) -> Option<&'a T> {
-        self.split_last().map(|(t, rest)| {
-            *self = rest;
-            t
-        })
-    }
+	fn pop(&mut self) -> Option<&'a T> {
+		self.split_last().map(|(t, rest)| {
+			*self = rest;
+			t
+		})
+	}
 }
 
 impl Pop<char> for &str {
-    fn pop(&mut self) -> Option<char> {
-        let c = self.chars().last();
-        if let Some(c) = c {
-            *self = &self[..self.len() - c.len_utf8()];
-        }
-        c
-    }
+	fn pop(&mut self) -> Option<char> {
+		let c = self.chars().last();
+		if let Some(c) = c {
+			*self = &self[..self.len() - c.len_utf8()];
+		}
+		c
+	}
 }
 
 // TODO
@@ -103,20 +103,20 @@ impl Pop<char> for &str {
 // }
 
 impl<'a, T> Unshift<&'a T> for &'a [T] {
-    fn unshift(&mut self) -> Option<&'a T> {
-        self.split_first().map(|(t, rest)| {
-            *self = rest;
-            t
-        })
-    }
+	fn unshift(&mut self) -> Option<&'a T> {
+		self.split_first().map(|(t, rest)| {
+			*self = rest;
+			t
+		})
+	}
 }
 
 impl Unshift<char> for &str {
-    fn unshift(&mut self) -> Option<char> {
-        let c = self.chars().next();
-        if let Some(c) = c {
-            *self = &self[c.len_utf8()..];
-        }
-        c
-    }
+	fn unshift(&mut self) -> Option<char> {
+		let c = self.chars().next();
+		if let Some(c) = c {
+			*self = &self[c.len_utf8()..];
+		}
+		c
+	}
 }
