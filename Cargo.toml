@@ -1,6 +1,9 @@
 [package]
 name = "gnaw"
-version = "0.1.0-dev"
+version = "0.0.1"
 authors = ["Tamme Schichler <tamme@schichler.dev>"]
 edition = "2018"
+description = "Conveniently chip small pieces off a slice or `str` to use elsewhere."
+license = "MPL-2.0"
+repository = "https://github.com/Tamschi/gnaw"
 publish = false

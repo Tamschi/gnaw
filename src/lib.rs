@@ -1,5 +1,3 @@
-//! Treat [`mut &[]`] and [`mut &str`] (almost) like a [`mut Vec`]!
-//!
 //! With this crate, you can conveniently chip pieces off a [slice] or [`str`] to use elsewhere.
 //!
 //! # Example
@@ -63,7 +61,7 @@ impl<'a> Drain<'a, char> for &'a str {
 	}
 }
 
-// TODO
+// TODO: This method doesn't compile as-is, but there should be a way to do this.
 // impl<'a, T> Pop<&'a mut T> for &'a mut [T] {
 //     fn pop(&mut self) -> Option<&'a mut T> {
 //         self.split_last_mut().map(|(t, rest)| -> &'a mut T {
@@ -92,7 +90,7 @@ impl Pop<char> for &str {
 	}
 }
 
-// TODO
+// TODO: This method doesn't compile as-is, but there should be a way to do this.
 // impl<'a, T> Unshift<&'a mut T> for &'a mut [T] {
 //     fn unshift(&mut self) -> Option<&'a mut T> {
 //         self.split_first_mut().map(|(t, rest)| -> &'a mut T {
