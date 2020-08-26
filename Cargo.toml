@@ -7,3 +7,7 @@ description = "Conveniently chip small pieces off a slice or `str` to use elsewh
 license = "MPL-2.0"
 repository = "https://github.com/Tamschi/gnaw"
 publish = false
+include = [
+	"**/*.rs",
+	"Cargo.toml",
+]
