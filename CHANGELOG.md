@@ -1,6 +1,6 @@
 # gnaw Changelog
 
-## next
+## 0.0.2
 
 * Added *some* documentation
 * Added meta data
