@@ -1,5 +1,8 @@
 //! With this crate, you can conveniently chip pieces off a [slice] or [`str`] to use elsewhere.
 //!
+//! [slice]: https://doc.rust-lang.org/stable/std/primitive.slice.html
+//! [`str`]: https://doc.rust-lang.org/stable/std/primitive.str.html
+//!
 //! # Example
 //!
 //! ```rust
@@ -22,6 +25,12 @@
 //! ```
 
 #![warn(clippy::pedantic)]
+#![doc(html_root_url = "https://docs.rs/gnaw/0.0.2")]
+
+#[cfg(doctest)]
+pub mod readme {
+	doc_comment::doctest!("../README.md");
+}
 
 mod drains;
 use drains::{SliceDrain, StrDrain};
