@@ -1,5 +1,9 @@
 # gnaw Changelog
 
+## next
+
+* Updated meta data to match my current rust-template (as of 2020-10-28)
+
 ## 0.0.2
 
 * Added *some* documentation
