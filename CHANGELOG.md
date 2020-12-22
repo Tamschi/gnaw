@@ -1,5 +1,7 @@
 # gnaw Changelog
 
+<!-- markdownlint-disable no-trailing-punctuation -->
+
 ## next
 
 * Updated meta data to match my current rust-template (as of 2020-10-28)

@@ -5,7 +5,7 @@
 [![Docs.rs](https://docs.rs/gnaw/badge.svg)](https://docs.rs/crates/gnaw)
 
 ![Rust 1.40.0](https://img.shields.io/static/v1?logo=Rust&label=&message=1.40.0&color=grey)
-[![Build Status](https://travis-ci.com/Tamschi/gnaw.svg?branch=develop)](https://travis-ci.com/Tamschi/gnaw/branches)
+[![CI](https://github.com/Tamschi/gnaw/workflows/CI/badge.svg?branch=develop)](https://github.com/Tamschi/gnaw/actions?query=workflow%3ACI+branch%3Adevelop)
 ![Crates.io - License](https://img.shields.io/crates/l/gnaw/0.0.2)
 
 [![GitHub](https://img.shields.io/static/v1?logo=GitHub&label=&message=%20&color=grey)](https://github.com/Tamschi/gnaw)
